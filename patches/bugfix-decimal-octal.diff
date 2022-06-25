@@ -1,0 +1,14 @@
+Index: abcdef/src/abcdef
+===================================================================
+--- abcdef.orig/src/abcdef
++++ abcdef/src/abcdef
+@@ -464,7 +464,8 @@ gettracknum()
+ 		# Get the trackpadding from the current track, also trim whitespace for MacOSX
+ 		CURRENTTRACKPADDING=$(echo -n "$UTRACKNUM" | wc -c | tr -d ' ')
+ 		REALTRACKNUM=$(expr $UTRACKNUM + 0) # Unpad
+-		TRACKNUM=$( printf %0.${CURRENTTRACKPADDING}d $((${REALTRACKNUM} + ${STARTTRACKNUMBER} - ${FIRSTTRACK})))
++		UNPADDEDFIRSTTRACK=$(expr $FIRSTTRACK + 0) # Unpad
++		TRACKNUM=$( printf %0.${CURRENTTRACKPADDING}d $((${REALTRACKNUM} + ${STARTTRACKNUMBER} - ${UNPADDEDFIRSTTRACK})))
+ 	else
+ 		TRACKNUM=${UTRACKNUM}
+ 	fi
