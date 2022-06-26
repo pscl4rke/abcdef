@@ -1,0 +1,41 @@
+
+When editing the metadata file you can optionally add
+a `DCOMPOSER=` line and `DPERFORMER=` line to have eyed3
+add in TCOM and TPE3 tags.  No other output formats
+supported.
+
+Index: abcdef/src/cddb-tool-f
+===================================================================
+--- abcdef.orig/src/cddb-tool-f
++++ abcdef/src/cddb-tool-f
+@@ -146,6 +146,8 @@ parse)	# takes 1 argument, a filename, a
+ 		CDYEAR=""
+ 	fi
+ 	CDGENRE=$(grep -a '^DGENRE=' "$CDDBFILE" | cut -f2- -d= | tr -d \[:cntrl:\])
++	DCOMPOSER=$(grep -a '^DCOMPOSER=' "$CDDBFILE" | cut -f2- -d= | tr -d \[:cntrl:\])
++	DPERFORMER=$(grep -a '^DPERFORMER=' "$CDDBFILE" | cut -f2- -d= | tr -d \[:cntrl:\])
+ 
+ 	set +e
+ 	echo DISCID="\"$DISCID\""
+@@ -154,6 +156,8 @@ parse)	# takes 1 argument, a filename, a
+ 	echo CDDBGENRE="\"$CDDBGENRE\""
+ 	echo CDYEAR="\"$CDYEAR\""
+ 	echo CDGENRE="\"$CDGENRE\""
++	echo DCOMPOSER="\"$DCOMPOSER\""
++	echo DPERFORMER="\"$DPERFORMER\""
+ 	NUMTRACKS=$(grep -a -E '^TTITLE[0-9]+=' "$CDDBFILE" | wc -l)
+ 	CURRTRACK=0
+ 	while [ "$CURRTRACK" -lt $NUMTRACKS ]; do
+Index: abcdef/src/abcdef
+===================================================================
+--- abcdef.orig/src/abcdef
++++ abcdef/src/abcdef
+@@ -917,6 +917,8 @@ do_tag ()
+ 						-A "$DALBUM" \
+ 						-a "$TRACKARTIST" -t "$TRACKNAME" \
+ 						-G "$GENREID" -n "${TRACKNUM:-$1}" \
++                        --text-frame=TCOM:"${DCOMPOSER}" \
++                        --text-frame=TPE3:"${DPERFORMER}" \
+ 						${TRACKNUM:+-N "$TRACKS"} \
+ 						"${addopts[@]}" \
+ 						"${ABCDETEMPDIR}/track$1.$OUTPUT"
