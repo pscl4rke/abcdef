@@ -28,3 +28,12 @@ To build a fully-patched version from a fresh checkout:
 
     $ make applied
 
+To update to the latest upstream
+
+    $ quilt pop -a
+    $ make latest-upstream
+    $ rm src
+    $ make src
+    $ while quilt push; do quilt refresh; done
+    $ rm patches/*.diff~
+
