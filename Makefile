@@ -5,7 +5,8 @@ applied: | src
 src:
 	mkdir src
 	cp -r upstream/abcde src/abcdef
-	chmod +x src/abcdef
+	cp -r upstream/cddb-tool src/cddb-tool-f
+	chmod +x src/abcdef src/cddb-tool-f
 
 upstreamFragment := https://git.einval.com/cgi-bin/gitweb.cgi?p=abcde.git;a=blob_plain;hb=HEAD
 
