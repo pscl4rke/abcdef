@@ -1,5 +1,5 @@
 
-src/abcdef:
+applied:
 	mkdir src
 	cp -r upstream/abcde src/abcdef
 	chmod +x src/abcdef

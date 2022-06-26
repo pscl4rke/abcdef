@@ -20,3 +20,11 @@ and third parties.
 Note that this is unrelated to the
 [abcdef](https://github.com/scy/abcdef)
 project that hasn't seen action since 2008.
+
+Usage
+-----
+
+To build a fully-patched version from a fresh checkout:
+
+    $ make applied
+

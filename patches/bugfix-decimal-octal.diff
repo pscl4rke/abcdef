@@ -1,4 +1,9 @@
 Index: abcdef/src/abcdef
+
+This bug manifests itself when using the `-T` option, and you
+have tracks that should be `08` or `09` and they get mistakenly
+interpretted as corrupted octal and become blank strings instead.
+
 ===================================================================
 --- abcdef.orig/src/abcdef
 +++ abcdef/src/abcdef
