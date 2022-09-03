@@ -1,0 +1,23 @@
+
+I don't know why both -t and -T exist.  I can't imagine under
+what circumstances you wouldn't want your ID3 track number and
+your filename track numbers to not match.
+
+Index: abcdef/src/abcdef
+===================================================================
+--- abcdef.orig/src/abcdef
++++ abcdef/src/abcdef
+@@ -4183,7 +4183,12 @@ while getopts 1a:bBc:C:d:DefgGhj:klLmMnN
+ 		R) CDDBLOCALRECURSIVE=y ;;
+ 		s) SHOWCDDBFIELDS="$OPTARG" ;;
+ 		S) CDSPEEDVALUE="$OPTARG" ;;
+-		t) STARTTRACKNUMBER="$OPTARG" ;;
++		t)
++			echo "You numpty, use -T not -t"
++			echo "Why on earth would someone want to alter the filenames"
++			echo "but not the track numbers used in the tags!"
++			exit
++			;;
+ 		T) STARTTRACKNUMBER="$OPTARG" ; STARTTRACKNUMBERTAG="y" ;;
+ 		U) CDDBPROTO=5 ;;
+ 		v)
