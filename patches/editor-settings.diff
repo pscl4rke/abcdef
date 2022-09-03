@@ -1,0 +1,10 @@
+Index: abcdef/src/abcdef
+===================================================================
+--- abcdef.orig/src/abcdef
++++ abcdef/src/abcdef
+@@ -5596,4 +5596,4 @@ fi
+ exit 0
+ 
+ # b:is_bash
+-# vim:tabstop=4
++# vim:tabstop=4:noexpandtab
