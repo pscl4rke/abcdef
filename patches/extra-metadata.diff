@@ -34,8 +34,8 @@ Index: abcdef/src/abcdef
  						-A "$DALBUM" \
  						-a "$TRACKARTIST" -t "$TRACKNAME" \
  						-G "$GENREID" -n "${TRACKNUM:-$1}" \
-+                        --text-frame=TCOM:"${DCOMPOSER}" \
-+                        --text-frame=TPE3:"${DPERFORMER}" \
++						--text-frame=TCOM:"${DCOMPOSER}" \
++						--text-frame=TPE3:"${DPERFORMER}" \
  						${TRACKNUM:+-N "$TRACKS"} \
  						"${addopts[@]}" \
  						"${ABCDETEMPDIR}/track$1.$OUTPUT"

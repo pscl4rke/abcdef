@@ -2,7 +2,7 @@ Index: abcdef/src/abcdef
 ===================================================================
 --- abcdef.orig/src/abcdef
 +++ abcdef/src/abcdef
-@@ -5596,4 +5596,4 @@ fi
+@@ -5588,4 +5588,4 @@ fi
  exit 0
  
  # b:is_bash
