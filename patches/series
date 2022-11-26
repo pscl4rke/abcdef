@@ -2,3 +2,4 @@ editor-settings.diff
 bugfix-decimal-octal.diff
 extra-metadata.diff
 no-partial-track-numbering.diff
+no-non-interactive.diff

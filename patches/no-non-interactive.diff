@@ -1,0 +1,23 @@
+
+This gets rid of the -N cmd line option, which isn't useful and
+sometimes gets invoked by mistake.
+
+Index: abcdef/src/abcdef
+===================================================================
+--- abcdef.orig/src/abcdef
++++ abcdef/src/abcdef
+@@ -4171,7 +4171,13 @@ while getopts 1a:bBc:C:d:DefgGhj:klLmMnN
+ 		l) LOWDISK=y ;;
+ 		L) CDDBUSELOCAL=y ;;
+ 		n) CDDBAVAIL=n ;;
+-		N) INTERACTIVE=n ;;
++		N)
++			echo "You numpty, don't use -N"
++			echo "Why on earth would someone want a non-interactive batch mode"
++			echo "when they still need to physically insert and remove discs"
++			echo "and the metadata from the Internet will always need tweaking!"
++			exit
++			;;
+ 		m) DOSPLAYLIST=y ;;
+ 		M) DOCUE=y ;;
+ 		o) OUTPUTTYPE="$OPTARG" ;;
