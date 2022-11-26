@@ -32,7 +32,7 @@ To update to the latest upstream
 
     $ quilt pop -a
     $ make latest-upstream
-    $ rm src
+    $ rm -r src
     $ make src
     $ while quilt push; do quilt refresh; done
     $ rm patches/*.diff~
