@@ -1,0 +1,18 @@
+
+Because it turns out turning genres into ID3v1 tag numbers
+is a bad idea if the user wants to use genres that aren't
+recognised in ID3v1.
+
+Index: abcdef/src/abcdef
+===================================================================
+--- abcdef.orig/src/abcdef
++++ abcdef/src/abcdef
+@@ -916,7 +916,7 @@ do_tag ()
+ 					run_command "tagtrack-$OUTPUT-$1" nice $ENCNICE $TAGGER $TAGGEROPTS \
+ 						-A "$DALBUM" \
+ 						-a "$TRACKARTIST" -t "$TRACKNAME" \
+-						-G "$GENREID" -n "${TRACKNUM:-$1}" \
++						-G "$CDGENRE" -n "${TRACKNUM:-$1}" \
+ 						--text-frame=TCOM:"${DCOMPOSER}" \
+ 						--text-frame=TPE3:"${DPERFORMER}" \
+ 						${TRACKNUM:+-N "$TRACKS"} \
