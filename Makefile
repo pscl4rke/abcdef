@@ -17,3 +17,7 @@ latest-upstream:
 install-links:
 	ln -s $$(realpath src/abcdef) ~/bin/.
 	ln -s $$(realpath src/cddb-tool-f) ~/bin/.
+
+install-dependencies-debian:
+	@echo Note: Assuming a recent version of eyeD3 pre-exists from pip
+	apt-get install cd-discid wget cdparanoia lame
