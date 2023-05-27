@@ -13,3 +13,7 @@ upstreamFragment := https://git.einval.com/cgi-bin/gitweb.cgi?p=abcde.git;a=blob
 latest-upstream:
 	curl "$(upstreamFragment);f=abcde" -f -o upstream/abcde
 	curl "$(upstreamFragment);f=cddb-tool" -f -o upstream/cddb-tool
+
+install-links:
+	ln -s $$(realpath src/abcdef) ~/bin/.
+	ln -s $$(realpath src/cddb-tool-f) ~/bin/.
