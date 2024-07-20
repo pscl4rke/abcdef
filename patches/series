@@ -4,3 +4,4 @@ extra-metadata.diff
 no-partial-track-numbering.diff
 no-non-interactive.diff
 handle-nonstandard-genres.diff
+edit-loop.diff

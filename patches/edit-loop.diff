@@ -1,0 +1,25 @@
+Index: abcdef/src/abcdef
+===================================================================
+--- abcdef.orig/src/abcdef
++++ abcdef/src/abcdef
+@@ -3025,6 +3025,9 @@ do_cddbedit ()
+ 	fi
+ 	CDDBDATA="${ABCDETEMPDIR}/cddbread.$(checkstatus cddb-choice)"
+ 	CDDBSOURCE=$(cat "${ABCDETEMPDIR}/datasource.$(checkstatus cddb-choice)")
++	while :; do
++	echo
++	cat "$CDDBDATA"
+ 	echo -n "Edit selected CDDB data " >&2
+ 	if [ "$INTERACTIVE" = "y" ]; then
+ 		if [ "$UNKNOWNDISK" = "y" ]; then
+@@ -3079,7 +3082,10 @@ do_cddbedit ()
+ 		if [ -w "$CDDBDATA~" ]; then
+ 			rm -f "$CDDBDATA~"
+ 		fi
++	else
++		break
+ 	fi
++	done
+ 
+ 	# Some heuristics first. Look at Disc Title, and if it starts with
+ 	# "Various", then we'll assume Various Artists
