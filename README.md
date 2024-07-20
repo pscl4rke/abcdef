@@ -24,11 +24,13 @@ project that hasn't seen action since 2008.
 Usage
 -----
 
-To build a fully-patched version from a fresh checkout:
+To build and use a fully-patched version from a fresh checkout:
 
     $ make applied
+    $ make install-links
+    $ sudo make install-dependencies-debian
 
-To update to the latest upstream
+To update to the latest upstream:
 
     $ quilt pop -a
     $ make latest-upstream
@@ -36,4 +38,11 @@ To update to the latest upstream
     $ make src
     $ while quilt push; do quilt refresh; done
     $ rm patches/*.diff~
+
+To add a new patch:
+
+    $ quilt push -a
+    $ quilt new my-fix.diff
+    $ quilt edit thefile.xyz
+    $ quilt refresh
 
