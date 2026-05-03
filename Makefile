@@ -9,6 +9,7 @@ src:
 	chmod +x src/abcdef src/cddb-tool-f
 
 # N.B. there is a small fork at https://github.com/glanois/abcde
+# N.B. there is a small fork at https://github.com/poddmo/abcde
 upstreamFragment := https://git.einval.com/cgi-bin/gitweb.cgi?p=abcde.git;a=blob_plain;hb=HEAD
 
 latest-upstream:
