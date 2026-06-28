@@ -1,0 +1,37 @@
+Index: abcdef/src/cddb-tool-f
+===================================================================
+--- abcdef.orig/src/cddb-tool-f
++++ abcdef/src/cddb-tool-f
+@@ -22,6 +22,8 @@
+ VERSION=0.4.7
+ NAME=cddb-tool
+ 
++echo "[$NAME] Called with: ${@}" 1>&2
++
+ #return codes
+ BAD_SYNTAX_ERR=10  # invalid CDDB file
+ NO_TMP_ERR=11      # can't create a temp file
+@@ -235,6 +237,7 @@ query) # cddb-tool query serverurl proto
+ 	shift 4
+ 	TRACKINFO="$@"
+ 	TRACKINFOPLUS=$(echo $TRACKINFO | tr ' ' '+')
++	#echo "[$NAME] Running: $HTTPGET $SERVER?cmd=cddb+query+$TRACKINFOPLUS&hello=$HELLOINFO&proto=$PROTO" 1>&2
+ 	RESULTS=$($HTTPGET "$SERVER?cmd=cddb+query+$TRACKINFOPLUS&hello=$HELLOINFO&proto=$PROTO") || exit $LOOKUP_ERR
+ 	echo "$RESULTS" | tr '\r' '\n' | tr -s '\n' | sed 's/^ //g'
+ 	;;
+@@ -247,6 +250,7 @@ read) # cddb-tool read serverurl proto u
+ 	CATEGORY="$5"
+ 	DISCID="$6"
+ 	HELLOINFO="$USER+$HOST+$NAME+$VERSION"
++	#echo "[$NAME] Running: $HTTPGET $CDDBDATA $SERVER?cmd=cddb+read+$CATEGORY+$DISCID&hello=$HELLOINFO&proto=$PROTO" 1>&2
+ 	$HTTPGET $CDDBDATA "$SERVER?cmd=cddb+read+$CATEGORY+$DISCID&hello=$HELLOINFO&proto=$PROTO" 2>/dev/null
+ 	;;
+ 
+@@ -256,6 +260,7 @@ stat) # cddb-tool stat serverurl user ho
+ 	HOST="$3"
+ 	PROTO="$4"
+ 	HELLOINFO="$USER+$HOST+$NAME+$VERSION"
++	#echo "[$NAME] Running: $HTTPGET $CDDBDATA $SERVER?cmd=stat&hello=$HELLOINFO&proto=$PROTO" 1>&2
+ 	$HTTPGET $CDDBDATA "$SERVER?cmd=stat&hello=$HELLOINFO&proto=$PROTO" 2>/dev/null
+ 	;;
+ 
